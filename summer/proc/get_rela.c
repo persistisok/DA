@@ -6,7 +6,7 @@
 
 int main() {
     // 打开可执行文件
-    const char* filename = "circle";
+    const char* filename = "libMiddle.so";
     int fd = open(filename, O_RDONLY);//O_RDONLY：只读方式打开文件。如果出现错误，它将返回-1
     if (fd < 0) {
         perror("open");

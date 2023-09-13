@@ -252,8 +252,19 @@ int main(int argc, const char* argv[]) {
     strcpy(func_name_origin,argv[2]);
     unsigned long got_addr = get_got_addr(child,prog_name,func_name_origin);
 
+    unsigned long func_addr_origin = ptrace(PTRACE_PEEKDATA,child,got_addr,0);
+    
     replace_got(child,got_addr,func_addr);
+    
+    ptrace(PTRACE_CONT,child,0,0);
+    
+    
+    wait(NULL);
+    replace_got(child,got_addr,func_addr_origin);
 
     ptrace(PTRACE_DETACH,child,NULL,NULL);
+    
+    
+
     return 0;
 }
