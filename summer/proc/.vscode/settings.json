@@ -58,5 +58,6 @@
   "files.associations": {
     "unistd.h": "c",
     "link.h": "c"
-  }
+  },
+  "C_Cpp_Runner.msvcSecureNoWarnings": false
 }
